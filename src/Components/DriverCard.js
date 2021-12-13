@@ -2,7 +2,7 @@ import DateUtils from "../Utils/DateUtils";
 
 export default function DriverCard({ driver }) {
   return (
-    <li key={driver.email} className="drivers__item">
+    <li className="drivers__item">
       <header>
         Driver ID <span>{driver.id.value}</span>
       </header>
