@@ -4,12 +4,27 @@ import DateUtils from "../Utils/DateUtils";
 
 export default function DriverListPage() {
   const [drivers, setDrivers] = useState([]);
+  const [startOffset, setStartOffset] = useState(0);
+  const [endOffset, setEndOffset] = useState(5);
+
+  function prevButtonHandler() {
+    const newStartOffset = startOffset - 5 > 0 ? startOffset - 5 : 0;
+    const newEndOffset = endOffset - 5 > 5 ? endOffset - 5 : 5;
+
+    setStartOffset(newStartOffset);
+    setEndOffset(newEndOffset);
+  }
+
+  function nextButtonHandler() {
+    setStartOffset(startOffset + 5);
+    setEndOffset(endOffset + 5);
+  }
+
   useEffect(() => {
     DriverService.fetchDrivers().then((result) => {
       setDrivers(result);
     });
   }, []);
-  console.log(drivers);
 
   return (
     <div className="drivers">
@@ -17,7 +32,7 @@ export default function DriverListPage() {
         <h1>DRIVER MANAGEMENT</h1>
       </header>
       <ul className="drivers__list">
-        {drivers.slice(0, 5).map((driver) => (
+        {drivers.slice(startOffset, endOffset).map((driver) => (
           <li key={driver.email} className="drivers__item">
             <header>
               Driver ID <span>{driver.id.value}</span>
@@ -46,6 +61,18 @@ export default function DriverListPage() {
           </li>
         ))}
       </ul>
+
+      <div className="drivers__navigation">
+        <button disabled={startOffset <= 0} onClick={prevButtonHandler}>
+          Previous
+        </button>
+        <button
+          disabled={endOffset >= drivers.length}
+          onClick={nextButtonHandler}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 }
