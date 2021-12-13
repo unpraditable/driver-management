@@ -3,7 +3,10 @@ import DriverService from "../Services/DriverService";
 import DateUtils from "../Utils/DateUtils";
 
 export default function DriverListPage() {
-  const [drivers, setDrivers] = useState([]);
+  const savedDrivers = localStorage.getItem("drivers");
+  const [drivers, setDrivers] = useState(
+    savedDrivers ? JSON.parse(savedDrivers) : []
+  );
   const [startOffset, setStartOffset] = useState(0);
   const [endOffset, setEndOffset] = useState(5);
 
@@ -22,9 +25,12 @@ export default function DriverListPage() {
 
   useEffect(() => {
     DriverService.fetchDrivers().then((result) => {
-      setDrivers(result);
+      if (!savedDrivers) {
+        localStorage.setItem("drivers", JSON.stringify(result));
+        setDrivers(result);
+      }
     });
-  }, []);
+  }, [savedDrivers]);
 
   return (
     <div className="drivers">
