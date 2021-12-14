@@ -1,0 +1,46 @@
+@import "../colors.scss";
+
+.driver__header {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  margin: 16px 64px;
+  padding: 24px 16px;
+  &-title {
+    h1 {
+      color: $red;
+      margin: 0;
+    }
+    p {
+      color: $text;
+      margin: 0;
+    }
+  }
+
+  &-form {
+    margin-left: auto;
+    display: flex;
+
+    form {
+      input {
+        box-sizing: border-box;
+        border: 1px solid $gray;
+        color: $text;
+        border-radius: 2px;
+        height: 36px;
+        width: 160px;
+        padding: 0 8px;
+      }
+    }
+    button {
+      margin-left: 12px;
+      background-color: $red;
+      color: white;
+      height: 36px;
+      width: 160px;
+      box-shadow: none;
+      border: 0;
+      border-radius: 2px;
+    }
+  }
+}

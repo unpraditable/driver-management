@@ -1,0 +1,20 @@
+@import "../colors.scss";
+
+.drivers__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 32px 0;
+  button {
+    font-size: 18px;
+    color: $text;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+    font-weight: 600;
+    margin: 0 64px;
+    &:disabled {
+      color: $gray;
+    }
+  }
+}

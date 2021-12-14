@@ -1,3 +1,5 @@
+import "./DriverNavigation.scss";
+
 export default function DriverNavigation({
   startOffset,
   setStartOffset,
@@ -17,13 +19,13 @@ export default function DriverNavigation({
   return (
     <div className="drivers__navigation">
       <button disabled={startOffset <= 0} onClick={prevButtonHandler}>
-        Previous
+        &lsaquo; Previous Page
       </button>
       <button
         disabled={endOffset >= drivers.length}
         onClick={nextButtonHandler}
       >
-        Next
+        Next Page &rsaquo;
       </button>
     </div>
   );
