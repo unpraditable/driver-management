@@ -1,4 +1,5 @@
 import DateUtils from "../Utils/DateUtils";
+import "./DriverCard.scss";
 
 export default function DriverCard({ driver }) {
   return (

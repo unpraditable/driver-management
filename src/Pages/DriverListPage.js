@@ -3,6 +3,7 @@ import DriverCard from "../Components/DriverCard";
 import DriverHeader from "../Components/DriverHeader";
 import DriverNavigation from "../Components/DriverNavigation";
 import DriverService from "../Services/DriverService";
+import "./DriverListPage.scss";
 
 export default function DriverListPage() {
   const savedDrivers = localStorage.getItem("drivers");

@@ -1,0 +1,46 @@
+@import "../colors.scss";
+.drivers__item {
+  background-color: white;
+  list-style: none;
+  padding: 16px 8px;
+  display: inline-block;
+  margin: 16px 24px;
+  width: 200px;
+  height: 440px;
+  header {
+    padding: 16px 0;
+    margin-bottom: 16px;
+    border-bottom: 2px solid $dark-gray;
+    color: $dark-gray;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    span {
+      font-weight: 600;
+      color: $red;
+    }
+  }
+
+  &-row {
+    img {
+      height: 72px;
+      width: 72px;
+      border-radius: 50%;
+    }
+
+    h4 {
+      color: $dark-gray;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: $text;
+      font-weight: 600;
+      margin-top: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
