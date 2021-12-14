@@ -1,5 +1,9 @@
 @import "../colors.scss";
 
-.drivers {
-  background-color: $light-gray;
+@media only screen and (max-width: 768px) {
+  .drivers {
+    &__list {
+      padding: 0;
+    }
+  }
 }
