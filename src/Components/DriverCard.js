@@ -8,7 +8,7 @@ export default function DriverCard({ driver }) {
         Driver ID <span>{driver.id.value}</span>
       </header>
       <div className="drivers__item-row">
-        <img src={driver.picture.medium} />
+        <img src={driver.picture.medium} alt={driver.name.first} />
       </div>
       <div className="drivers__item-row">
         <h4>Nama Driver</h4>

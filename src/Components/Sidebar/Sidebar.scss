@@ -1,0 +1,40 @@
+@import "../../colors.scss";
+@import "../../utils.scss";
+
+.shipper__sidebar {
+  background: white;
+  height: 100vh;
+  width: 240px;
+  padding-top: 8px;
+  &-list {
+    padding-left: 0;
+    list-style: none;
+    li {
+      padding-left: 24px;
+      margin: 24px 0;
+      width: 240px;
+      img {
+        height: 24px;
+        margin-right: 8px;
+      }
+      font-weight: 600;
+      display: flex;
+      color: $text;
+      &.active {
+        border-left: 2px solid $red;
+        color: $red;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .shipper__sidebar {
+    display: none;
+    &.show {
+      position: absolute;
+      top: 60px;
+      display: block;
+    }
+  }
+}

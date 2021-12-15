@@ -6,11 +6,11 @@ export default function DriverHeader({ drivers, setDrivers }) {
   function handleSearch(e) {
     e.preventDefault();
     const searchFirstName = searchRef.current[0].value.toLowerCase();
-    setDrivers(
-      drivers.filter(
-        (driver) => driver.name.first.toLowerCase() === searchFirstName
-      )
+
+    const newDrivers = drivers.filter((driver) =>
+      driver.name.first.toLowerCase().includes(searchFirstName)
     );
+    setDrivers(newDrivers);
   }
   return (
     <header className="driver__header">

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import DriverCard from "../Components/DriverCard";
 import DriverHeader from "../Components/DriverHeader";
 import DriverNavigation from "../Components/DriverNavigation";
@@ -23,7 +23,10 @@ export default function DriverListPage() {
   }, [savedDrivers]);
   return (
     <div className="drivers">
-      <DriverHeader drivers={drivers} setDrivers={setDrivers} />
+      <DriverHeader
+        drivers={JSON.parse(savedDrivers)}
+        setDrivers={setDrivers}
+      />
       <ul className="drivers__list">
         {drivers.slice(startOffset, endOffset).map((driver, index) => (
           <DriverCard driver={driver} key={index} />

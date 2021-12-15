@@ -3,4 +3,15 @@ body {
   font-family: Source Sans Pro, -apple-system, Helvetica Neue, Arial, sans-serif;
   background-color: $light-gray;
   box-sizing: border-box;
+  &.lock-scroll {
+    overflow: hidden;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  .shipper {
+    &__body {
+      display: flex;
+    }
+  }
 }
