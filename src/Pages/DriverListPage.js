@@ -27,6 +27,8 @@ export default function DriverListPage() {
       <DriverHeader
         drivers={JSON.parse(savedDrivers)}
         setDrivers={setDrivers}
+        setStartOffset={setStartOffset}
+        setEndOffset={setEndOffset}
       />
       <ul className="drivers__list">
         {drivers.slice(startOffset, endOffset).map((driver, index) => (

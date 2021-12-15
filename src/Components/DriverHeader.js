@@ -1,8 +1,12 @@
 import { useRef } from "react";
 import "./DriverHeader.scss";
-export default function DriverHeader({ drivers, setDrivers }) {
+export default function DriverHeader({
+  drivers,
+  setDrivers,
+  setStartOffset,
+  setEndOffset,
+}) {
   const searchRef = useRef();
-
   function handleSearch(e) {
     e.preventDefault();
     const searchFirstName = searchRef.current[0].value.toLowerCase();
@@ -11,6 +15,8 @@ export default function DriverHeader({ drivers, setDrivers }) {
       driver.name.first.toLowerCase().includes(searchFirstName)
     );
     setDrivers(newDrivers);
+    setStartOffset(0);
+    setEndOffset(5);
   }
   return (
     <header className="driver__header">
