@@ -1,0 +1,43 @@
+@import "../../colors.scss";
+@import "../../utils.scss";
+
+.shipper__header {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 16px;
+  &-hamburger {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    margin-right: 24px;
+    img {
+      height: 24px;
+      width: auto;
+    }
+  }
+  &-logo {
+    img {
+      width: auto;
+      height: 24px;
+    }
+  }
+  &-user {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    p {
+      margin-right: 8px;
+      color: $text;
+      span {
+        color: $red;
+      }
+    }
+
+    img {
+      width: auto;
+      height: 28px;
+    }
+  }
+}
