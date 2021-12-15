@@ -4,7 +4,17 @@
   .drivers {
     &__list {
       padding: 0;
+    }
+  }
+}
+@media only screen and (min-width: 769px) {
+  .drivers {
+    &__list {
       padding-left: 6px;
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      width: 800px;
     }
   }
 }
