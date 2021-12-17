@@ -5,6 +5,12 @@
     &__list {
       padding: 0;
     }
+    &__not-found {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $text;
+    }
   }
 }
 @media only screen and (min-width: 500px) {
@@ -15,6 +21,13 @@
       flex-wrap: nowrap;
       overflow-x: auto;
       width: 800px;
+    }
+    &__not-found {
+      height: 464px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $text;
     }
   }
 }

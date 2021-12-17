@@ -3,6 +3,7 @@ import ScrollContainer from "react-indiana-drag-scroll";
 import DriverCard from "../Components/DriverCard";
 import DriverHeader from "../Components/DriverHeader";
 import DriverNavigation from "../Components/DriverNavigation";
+import Loader from "../Components/Loader/Loader";
 import DriverService from "../Services/DriverService";
 import "./DriverListPage.scss";
 
@@ -11,11 +12,13 @@ export default function DriverListPage() {
   const [drivers, setDrivers] = useState(
     savedDrivers ? JSON.parse(savedDrivers) : []
   );
+  const [isLoading, setIsLoading] = useState(true);
   const [startOffset, setStartOffset] = useState(0);
   const [endOffset, setEndOffset] = useState(5);
 
   useEffect(() => {
     DriverService.fetchDrivers().then((result) => {
+      setIsLoading(false);
       if (!savedDrivers) {
         localStorage.setItem("drivers", JSON.stringify(result));
         setDrivers(result);
@@ -31,15 +34,23 @@ export default function DriverListPage() {
         setStartOffset={setStartOffset}
         setEndOffset={setEndOffset}
       />
-      <ScrollContainer className="drivers__list">
-        {drivers.slice(startOffset, endOffset).map((driver, index) => (
-          <DriverCard
-            driver={driver}
-            key={index}
-            style={{ whiteSpace: "nowrap" }}
-          />
-        ))}
-      </ScrollContainer>
+      {isLoading ? (
+        <Loader />
+      ) : drivers.length > 0 ? (
+        <ScrollContainer className="drivers__list">
+          {drivers.slice(startOffset, endOffset).map((driver, index) => (
+            <DriverCard
+              driver={driver}
+              key={index}
+              style={{ whiteSpace: "nowrap" }}
+            />
+          ))}
+        </ScrollContainer>
+      ) : (
+        <div className="drivers__not-found">
+          <p>Driver tidak ditemukan!</p>
+        </div>
+      )}
 
       <DriverNavigation
         startOffset={startOffset}
