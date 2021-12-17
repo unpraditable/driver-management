@@ -1,13 +1,13 @@
 @import "../colors.scss";
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 499px) {
   .drivers {
     &__list {
       padding: 0;
     }
   }
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 500px) {
   .drivers {
     &__list {
       padding-left: 6px;

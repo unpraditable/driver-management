@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ScrollContainer from "react-indiana-drag-scroll";
 import DriverCard from "../Components/DriverCard";
 import DriverHeader from "../Components/DriverHeader";
 import DriverNavigation from "../Components/DriverNavigation";
@@ -30,11 +31,15 @@ export default function DriverListPage() {
         setStartOffset={setStartOffset}
         setEndOffset={setEndOffset}
       />
-      <ul className="drivers__list">
+      <ScrollContainer className="drivers__list">
         {drivers.slice(startOffset, endOffset).map((driver, index) => (
-          <DriverCard driver={driver} key={index} />
+          <DriverCard
+            driver={driver}
+            key={index}
+            style={{ whiteSpace: "nowrap" }}
+          />
         ))}
-      </ul>
+      </ScrollContainer>
 
       <DriverNavigation
         startOffset={startOffset}
